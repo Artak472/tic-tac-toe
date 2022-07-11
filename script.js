@@ -44,6 +44,7 @@ function game(){
 var s = true;
 
 var arr2 = [];
+var winRes = false;
 
 function click(){    
     if(s==true && !this.innerHTML){
@@ -67,6 +68,7 @@ function click(){
     var winP = document.getElementById("winP");
     var refreshBut = document.getElementById("refresh");
     var XO = document.getElementById("XO");
+    
   
     for(i=0; i<mas.length; i++){
         var number = m.value - 1;
@@ -93,6 +95,7 @@ function click(){
             refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
             refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
             XO.remove();
+            winRes = true;
             
         }
         else if(result[0] == "O"){
@@ -110,6 +113,7 @@ function click(){
             refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
             refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
             XO.remove();
+            winRes = true;
         }
     }
 
@@ -148,6 +152,7 @@ function click(){
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
                 XO.remove();
+                winRes = true;
             }
             if(winO == mas.length-1){
                 //console.log("Winner O");
@@ -164,6 +169,7 @@ function click(){
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
                 XO.remove();
+                winRes = true;
             }
         }
     }
@@ -200,6 +206,7 @@ function click(){
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
                 XO.remove();
+                winRes = true;
             }
             if(oWin == mas.length-1){
                 console.log("Winner O");
@@ -216,6 +223,7 @@ function click(){
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
                 XO.remove();
+                winRes = true;
             }
         }
     }
@@ -254,6 +262,7 @@ function click(){
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
                 XO.remove();
+                winRes = true;
             }
             if(wO == mas.length-1){
                 //console.log("WINNER O");
@@ -270,35 +279,42 @@ function click(){
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
                 XO.remove();
+                winRes = true;
+
             }
         }
     }
 
+    setTimeout(myFunction, 3000);
     var draw = 0;
-
-    for(i=0; i<mas.length; i++){
-        for(j=0; j<mas.length; j++){
-            if(mas[i][j] == "X" || mas[i][j] == "O"){
-                draw++;
-                //console.log(draw);
-            }
-            if(draw == mas.length*mas.length){
-                //console.log("WINNER O");
-                winDiv.style.zIndex = "999";
-                winDiv.style.backgroundColor = "rgb(151, 255, 255)";
-                winDiv.style.border = "3px solid rgb(88, 88, 88)";
-                winDiv.style.boxShadow = "5px 5px 10px";
-                winP.innerHTML = "Draw"
-                refreshBut.style.zIndex = "999";
-                refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
-                refreshBut.style.border = "3px solid rgb(88, 88, 88)";
-                refreshBut.style.fontSize = "15px";
-                refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
-                refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
-                refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
-                XO.remove();
+    function myFunction(){
+        for(i=0; i<mas.length; i++){
+            for(j=0; j<mas.length; j++){
+                if(mas[i][j] == "X" || mas[i][j] == "O"){
+                    draw++;
+                    //console.log(draw);
+                }
+                if(draw == mas.length*mas.length && winRes == false){
+                    //console.log("WINNER O");
+                    winDiv.style.zIndex = "999";
+                    winDiv.style.backgroundColor = "rgb(151, 255, 255)";
+                    winDiv.style.border = "3px solid rgb(88, 88, 88)";
+                    winDiv.style.boxShadow = "5px 5px 10px"
+                    winP.innerHTML = "Draw"
+                    refreshBut.style.zIndex = "999";
+                    refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
+                    refreshBut.style.border = "3px solid rgb(88, 88, 88)";
+                    refreshBut.style.fontSize = "15px";
+                    refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
+                    refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
+                    refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
+                    XO.remove();
+                }
             }
         }
     }
     
+    
 }
+
+
