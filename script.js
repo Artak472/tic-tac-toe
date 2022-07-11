@@ -1,4 +1,5 @@
 var m = document.getElementById("input");
+m.focus();
 var but = document.getElementById("but");
 var n = input.value.trim();
 var mas=new Array(m);
