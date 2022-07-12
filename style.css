@@ -66,6 +66,7 @@ div{
         border-bottom-left-radius: 0px;
         background-color: rgb(190, 190, 190);
         cursor: pointer;
+        color: black;
         box-shadow: 2px 2px 15px;
     }
     .d{
@@ -123,6 +124,7 @@ div{
         border-bottom-right-radius: 0px;
         background-color: rgb(190, 190, 190);
         cursor: pointer;
+        color: black;
         box-shadow: 2px 2px 10px;
     }
     #quit{
@@ -135,6 +137,7 @@ div{
         border-bottom-left-radius: 0px;
         background-color: rgb(190, 190, 190);
         cursor: pointer;
+        color: black;
         box-shadow: 2px 2px 10px;
     }
 }
@@ -156,6 +159,7 @@ div{
         border-radius: 12px;
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
+        color: black;
         cursor: pointer;
     }
     
@@ -184,6 +188,7 @@ div{
         border-bottom-right-radius: 0px;
         background-color: rgb(190, 190, 190);
         cursor: pointer;
+        color: black;
         box-shadow: 2px 2px 10px;
     }
     #quit{
@@ -196,6 +201,7 @@ div{
         border-bottom-left-radius: 0px;
         background-color: rgb(190, 190, 190);
         cursor: pointer;
+        color: black;
         box-shadow: 2px 2px 10px;
     }
 }
@@ -216,6 +222,7 @@ div{
         border-radius: 12px;
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
+        color: black;
         cursor: pointer;
     }
     
@@ -244,6 +251,7 @@ div{
         border-bottom-right-radius: 0px;
         background-color: rgb(190, 190, 190);
         cursor: pointer;
+        color: black;
         box-shadow: 2px 2px 10px;
     }
     #quit{
@@ -256,6 +264,7 @@ div{
         border-bottom-left-radius: 0px;
         background-color: rgb(190, 190, 190);
         cursor: pointer;
+        color: black;
         box-shadow: 2px 2px 10px;
     }
 }
