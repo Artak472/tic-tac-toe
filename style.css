@@ -55,7 +55,7 @@ body{
 div{
     display: flex;
 }
-@media(max-width: 1920px){
+@media(max-width: 9000px){
     .d{
         justify-content: center;
         align-items: center;
