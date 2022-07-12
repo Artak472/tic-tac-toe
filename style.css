@@ -59,7 +59,7 @@ div{
     .d{
         justify-content: center;
         align-items: center;
-        font-size: 50px;
+        font-size: 90px;
         font-family: Arial, Helvetica, sans-serif;
         width: 100px;
         height: 100px;
@@ -98,9 +98,9 @@ div{
 
 @media (max-width: 400px) {
     .d{
-        width: 30px;
-        height: 30px;
-        font-size: 17px;
+        width: 80px;
+        height: 80px;
+        font-size: 60px;
     }
     #win{
         width: 200px;
@@ -111,6 +111,23 @@ div{
     #refresh{
         width: 100px;
         height: 30px;
+    }
+}
+@media (max-width: 800px) {
+    .d{
+        width: 100px;
+        height: 100px;
+        font-size: 90px;
+    }
+    #win{
+        width: 350px;
+        height: 150px;
+        font-size: 30px;
+    }
+
+    #refresh{
+        width: 150px;
+        height: 40px;
     }
 }
 
