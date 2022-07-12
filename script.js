@@ -32,10 +32,6 @@ function game(){
             var d = document.createElement("div");
             d.className = "d"
             d.id = i+""+j;
-            d.style.width = "100px";
-            d.style.height = "100px";
-            d.style.border = "1px solid black";  
-            d.style.backgroundColor = "white";
             d.addEventListener('click', click, false)
             document.getElementsByClassName(i)[0].appendChild(d);
         }   
@@ -181,14 +177,15 @@ function click(){
     
 
     for(i=mas.length-1; i>0; i--){
-        for(j=0; j<mas.length-1; j++){
+        for(j=0; j<mas.length; j++){
             var x = i-1;
             var y = j+1;
             var xy = mas[x][y];
-            if(mas[i][j] == xy && mas[i][j] == "X" && i==j && x==y){
+            if(mas[i][j] == xy && mas[i][j] == "X" && i+j == mas.length -1){
+
                 xWin++;
             }
-            if(mas[i][j] == xy && mas[i][j] == "O" && i==j && x==y){
+            if(mas[i][j] == xy && mas[i][j] == "O" && i+j == mas.length -1){
                 oWin++;
             }
 
