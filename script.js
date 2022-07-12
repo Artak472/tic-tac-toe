@@ -2,11 +2,17 @@ var m = document.getElementById("input");
 m.focus();
 var but = document.getElementById("but");
 var n = input.value.trim();
-var mas=new Array(m);
+var mas = new Array(m);
+
+m.addEventListener("keydown", function(event){
+    if(event.keyCode === 13){
+        enter();
+    }
+});
 
 
 function enter(){
-    console.log(m.value);
+    // console.log(m.value);
     if(m.value<3 || m.value == ""){
         location.reload();
     }
@@ -77,8 +83,9 @@ function game(x,y){
             }
         }   
     }
-    
 }
+
+
 var x = window.matchMedia("(max-width: 400px)")
 var y = window.matchMedia("(max-width: 800px)")
 
@@ -359,3 +366,11 @@ function click(){
 }
 
 
+function reload(){
+    for(i=0;i<mas.length;i++){
+        for(j=0;j<mas.length;j++){
+            document.getElementById(i+""+j).innerHTML = "";
+            // console.log(i+""+j);
+        }
+    }
+}
