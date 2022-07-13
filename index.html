@@ -8,10 +8,12 @@
         <title>Tic Tac Toe</title>
     </head>
     <body>
+        <div id="title">TIC TAC TOE</div>
         <div id="inputDiv"><p><b>Enter the number</b></p>
-            <div id="inpBut"><input type="text" id="input"><button id="but" onclick="enter()"><b>Enter</b></button></div>
+            <div id="inpBut"><input type="text" id="input"><button id="but" onclick="enter(x,y)"><b>Enter</b></button></div>
+            <div id="nums"><p>3 to 10</p></div>
         </div>
-        <div id="XO"></div>
+        <div id="XO"><p id="turn"></p></div>
         <div id="win"><p id="winP"></p><button id="refresh" onclick="location.reload()"><b>Play again</b></button></div>
         <div id="twoBut"><button id="reload" onclick="reload()">Restart</button><button id="quit" onclick="location.reload()">Quit</button></div>
         <script src="script.js"></script>

@@ -6,14 +6,14 @@ var mas = new Array(m);
 
 m.addEventListener("keydown", function(event){
     if(event.keyCode === 13){
-        enter();
+        enter(x,y);
     }
 });
 
 
-function enter(){
+function enter(x,y){
     // console.log(m.value);
-    if(m.value<3 || m.value == ""){
+    if(m.value<3 || m.value>10){
         location.reload();
     }
     for (var i=0; i<m.value; i++) {
@@ -30,6 +30,7 @@ function enter(){
 }
 
 function game(x,y){
+    document.getElementById("turn").innerHTML = "Player X Turn";   
     for(i=0; i<mas.length; i++){
         var b = document.createElement("div");
         b.className = i;
@@ -44,13 +45,23 @@ function game(x,y){
                 d.style.fontSize = "45px";
                 d.addEventListener('click', click, false)
                 document.getElementsByClassName(i)[0].appendChild(d);
-            }else if(x.matches && mas.length>6){
+            }else if(x.matches && mas.length>6 && mas.length<10){
                 var d = document.createElement("div");
                 d.className = "d"
                 d.id = i+""+j;
                 d.style.width = "35px";
                 d.style.height = "35px";
                 d.style.fontSize = "30px";
+                d.addEventListener('click', click, false)
+                document.getElementsByClassName(i)[0].appendChild(d);
+            }
+            else if(x.matches && mas.length==10){
+                var d = document.createElement("div");
+                d.className = "d"
+                d.id = i+""+j;
+                d.style.width = "30px";
+                d.style.height = "30px";
+                d.style.fontSize = "28px";
                 d.addEventListener('click', click, false)
                 document.getElementsByClassName(i)[0].appendChild(d);
             }
@@ -64,13 +75,43 @@ function game(x,y){
                 d.addEventListener('click', click, false)
                 document.getElementsByClassName(i)[0].appendChild(d);
             }
-            else if(y.matches && mas.length>6){
+            else if(y.matches && mas.length>6 && mas.length<10){
                 var d = document.createElement("div");
                 d.className = "d"
                 d.id = i+""+j;
                 d.style.width = "50px";
                 d.style.height = "50px";
                 d.style.fontSize = "45px";
+                d.addEventListener('click', click, false)
+                document.getElementsByClassName(i)[0].appendChild(d);
+            }
+            else if(y.matches && mas.length==10){
+                var d = document.createElement("div");
+                d.className = "d"
+                d.id = i+""+j;
+                d.style.width = "40px";
+                d.style.height = "40px";
+                d.style.fontSize = "38px";
+                d.addEventListener('click', click, false)
+                document.getElementsByClassName(i)[0].appendChild(d);
+            }
+            else if(z.matches && mas.length>6 && mas.length<10){
+                var d = document.createElement("div");
+                d.className = "d"
+                d.id = i+""+j;
+                d.style.width = "70px";
+                d.style.height = "70px";
+                d.style.fontSize = "65px";
+                d.addEventListener('click', click, false)
+                document.getElementsByClassName(i)[0].appendChild(d);
+            }
+            else if(z.matches && mas.length==10){
+                var d = document.createElement("div");
+                d.className = "d"
+                d.id = i+""+j;
+                d.style.width = "55px";
+                d.style.height = "55px";
+                d.style.fontSize = "53px";
                 d.addEventListener('click', click, false)
                 document.getElementsByClassName(i)[0].appendChild(d);
             }
@@ -83,11 +124,22 @@ function game(x,y){
             }
         }   
     }
+    fontSize(x);
+}
+
+var fSize;
+function fontSize(x){
+    if(x.matches){
+        fSize = 12+"px";
+    }else{
+        fSize = 15+"px";
+    }
 }
 
 
-var x = window.matchMedia("(max-width: 400px)")
-var y = window.matchMedia("(max-width: 800px)")
+var x = window.matchMedia("(max-width: 400px)");
+var y = window.matchMedia("(max-width: 800px)");
+var z = window.matchMedia("(max-width: 2100px)");
 
 var s = true;
 
@@ -98,10 +150,12 @@ function click(){
     if(s==true && !this.innerHTML){
         this.innerHTML = 'X';
         s = false;
+        document.getElementById("turn").innerHTML = "Player O Turn";
     }
     else if(s==false && !this.innerHTML){
         this.innerHTML = 'O';
         s = true;
+        document.getElementById("turn").innerHTML = "Player X Turn";
     }
 
     for(i=0; i<mas.length; i++){
@@ -138,7 +192,7 @@ function click(){
             refreshBut.style.zIndex = "999";
             refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
             refreshBut.style.border = "3px solid rgb(88, 88, 88)";
-            refreshBut.style.fontSize = "15px";
+            refreshBut.style.fontSize = fSize;
             refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
             refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
             refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
@@ -156,7 +210,7 @@ function click(){
             refreshBut.style.zIndex = "999";
             refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
             refreshBut.style.border = "3px solid rgb(88, 88, 88)";
-            refreshBut.style.fontSize = "15px";
+            refreshBut.style.fontSize = fSize;
             refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
             refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
             refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
@@ -194,7 +248,7 @@ function click(){
                 refreshBut.style.zIndex = "999";
                 refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
                 refreshBut.style.border = "3px solid rgb(88, 88, 88)";
-                refreshBut.style.fontSize = "15px";
+                refreshBut.style.fontSize = fSize;
                 refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
@@ -211,7 +265,7 @@ function click(){
                 refreshBut.style.zIndex = "999";
                 refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
                 refreshBut.style.border = "3px solid rgb(88, 88, 88)";
-                refreshBut.style.fontSize = "15px";
+                refreshBut.style.fontSize = fSize;
                 refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
@@ -249,7 +303,7 @@ function click(){
                 refreshBut.style.zIndex = "999";
                 refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
                 refreshBut.style.border = "3px solid rgb(88, 88, 88)";
-                refreshBut.style.fontSize = "15px";
+                refreshBut.style.fontSize = fSize;
                 refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
@@ -266,7 +320,7 @@ function click(){
                 refreshBut.style.zIndex = "999";
                 refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
                 refreshBut.style.border = "3px solid rgb(88, 88, 88)";
-                refreshBut.style.fontSize = "15px";
+                refreshBut.style.fontSize = fSize;
                 refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
@@ -305,7 +359,7 @@ function click(){
                 refreshBut.style.zIndex = "999";
                 refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
                 refreshBut.style.border = "3px solid rgb(88, 88, 88)";
-                refreshBut.style.fontSize = "15px";
+                refreshBut.style.fontSize = fSize;
                 refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
@@ -322,7 +376,7 @@ function click(){
                 refreshBut.style.zIndex = "999";
                 refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
                 refreshBut.style.border = "3px solid rgb(88, 88, 88)";
-                refreshBut.style.fontSize = "15px";
+                refreshBut.style.fontSize = fSize;
                 refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
                 refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                 refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
@@ -352,7 +406,7 @@ function click(){
                     refreshBut.style.zIndex = "999";
                     refreshBut.style.backgroundColor = "rgb(190, 190, 190)";
                     refreshBut.style.border = "3px solid rgb(88, 88, 88)";
-                    refreshBut.style.fontSize = "15px";
+                    refreshBut.style.fontSize = fSize;
                     refreshBut.addEventListener('mouseenter', ()=> refreshBut.style.backgroundColor = "white");
                     refreshBut.addEventListener('mouseleave', ()=> refreshBut.style.backgroundColor = "rgb(190, 190, 190)");
                     refreshBut.addEventListener('mousedown', ()=> refreshBut.style.backgroundColor = "rgb(82, 82, 82)");
