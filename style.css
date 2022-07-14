@@ -11,6 +11,7 @@ body{
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+    text-shadow: 2px 2px 10px;
     display: block;
 }
 
@@ -55,6 +56,7 @@ body{
     left: 50%;
     color: rgba(46, 46, 46, 0.849);
     font-weight: bold;
+    text-shadow: 2px 2px 7px;
 }
 
 #turn{
@@ -75,7 +77,7 @@ div{
         left: 50%;
         width: 100%;
         font-family: serif;
-        color: rgba(44, 44, 44, 0.87);
+        color: rgb(228 228 228 / 57%);
         font-size: 120px;
         z-index: -1;
     }
@@ -185,7 +187,7 @@ div{
         left: 50%;
         width: 100%;
         font-family: serif;
-        color: rgba(44, 44, 44, 0.87);
+        color: rgb(228 228 228 / 57%);
         font-size: 120px;
         z-index: -1;
     }
